@@ -1,7 +1,7 @@
 ---
 server:
   base:
-    app_name: "apitest"
+    app_name: "gjob-admin"
     app_mode: "debug"
     listen_addr: ":8080"
 
