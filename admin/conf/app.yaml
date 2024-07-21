@@ -7,7 +7,7 @@ server:
 
 mysql:
   base:
-    dsn: "luis:qwe123@tcp(127.0.0.1:3306)/api-test?charset=utf8mb4&parseTime=True&loc=Local"
+    dsn: "luis:qwe123@tcp(127.0.0.1:3306)/gjob?charset=utf8mb4&parseTime=True&loc=Local"
   config:
     maxIdleConns: 10
     maxOpenConns: 100
