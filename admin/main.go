@@ -17,7 +17,7 @@ func main() {
 	// 初始化实例
 	r := gin.Default()
 	// 使用中间件
-	r.Use(middleware.GinLogger)
+	r.Use(middleware.GinLogger, middleware.Cors())
 	// 注册user模块路由
 	api.Router(r)
 	// project.Router(r)

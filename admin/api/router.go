@@ -6,6 +6,6 @@ import (
 
 func Router(r *gin.Engine) {
 	// 创建登录路由
-	r.POST("/hello/:name", hello)
+	r.GET("/hello", hello)
 
 }

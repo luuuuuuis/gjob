@@ -9,7 +9,7 @@ import (
 
 func hello(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": service.Hello(ctx.Param("name")),
+		"message": service.Hello(),
 	})
 
 }
