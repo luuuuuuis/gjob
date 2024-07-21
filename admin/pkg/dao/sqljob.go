@@ -1,6 +1,9 @@
 package dao
 
-import "gjob-admin/pkg/model"
+import (
+	"gjob-admin/pkg/model"
+	"strconv"
+)
 
 var Sqljob sqljob
 
@@ -35,7 +38,28 @@ func (s sqljob) Get(name string) (sqljoblist []model.SqlJob, err error) {
 }
 
 // 分页查询全部
-func (s sqljob) GetAll(page, limit int) (sqljoblist []model.SqlJob, err error) {
-	rec := DB.Limit(limit).Offset((page - 1) * limit).Find(&sqljoblist)
+func (s sqljob) GetAll(pagenum, pagesize string) (sqljoblist []model.SqlJob, err error) {
+	pageSize, offsetVal := PageComput(pagenum, pagesize)
+	rec := DB.Limit(pageSize).Offset(offsetVal).Find(&sqljoblist)
 	return sqljoblist, rec.Error
+}
+
+// 分页计算
+func PageComput(pagenum, pagesize string) (pageSize, offsetVal int) {
+	// 判断是否有数据
+	pageSize, _ = strconv.Atoi(pagesize)
+	pageNum, _ := strconv.Atoi(pagenum)
+	// 判断是否需要分页
+	if pageSize == 0 {
+		pageSize = -1
+	}
+	if pageNum == 0 {
+		pageNum = -1
+	}
+
+	offsetVal = (pageNum - 1) * pageSize
+	if pageNum == -1 && pageSize == -1 {
+		offsetVal = -1
+	}
+	return
 }
