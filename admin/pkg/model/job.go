@@ -6,15 +6,13 @@ import (
 	"gorm.io/gorm"
 )
 
-
-
 type SqlJob struct {
 	gorm.Model
-	ID               uint      `json:"id" gorm:"not null;primaryKey;auto_increment"`
 	Name             string    `json:"name" gorm:"not null;unique;size:255"`
 	Sql              string    `json:"sql" gorm:"not null"`
 	Status           string    `json:"status" gorm:"not null;size:255"`
-	Frequency        string       `json:"frequency" gorm:"not null"`
+	System           string    `json:"system" gorm:"not null;size:255"`
+	Frequency        string    `json:"frequency" gorm:"not null"`
 	StartTime        time.Time `json:"starttime" gorm:"not null"`
 	EndTime          time.Time `json:"endtime" gorm:"not null"`
 	WechatGroup      string    `json:"wechatgroup" gorm:"not null;size:255"`
@@ -24,11 +22,11 @@ type SqlJob struct {
 
 type ScriptJob struct {
 	gorm.Model
-	ID               uint      `json:"id" gorm:"not null;primaryKey;auto_increment"`
 	Name             string    `json:"name" gorm:"not null;unique;size:255"`
 	Script           string    `json:"script" gorm:"not null"`
 	Status           string    `json:"status" gorm:"not null;size:255"`
-	Frequency        string       `json:"frequency" gorm:"not null"`
+	System           string    `json:"system" gorm:"not null;size:255"`
+	Frequency        string    `json:"frequency" gorm:"not null"`
 	StartTime        time.Time `json:"starttime" gorm:"not null"`
 	EndTime          time.Time `json:"endtime" gorm:"not null"`
 	WechatGroup      string    `json:"wechatgroup" gorm:"not null;size:255"`

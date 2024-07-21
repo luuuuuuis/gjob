@@ -21,4 +21,13 @@ redis:
     maxIdle: 10
     maxActive: 5
     idleTimeout: 100
+
+Log:
+  logdir: "logs"
+  logfile: "app.log"
+  level: "debug"
+  pattern: "development"
+  maxsize: 1
+  maxbackups: 3
+  maxage: 7
   
