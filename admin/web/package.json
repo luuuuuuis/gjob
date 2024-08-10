@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@layui/layui-vue": "^2.18.1",
     "axios": "^1.7.2",
+    "echarts": "^5.5.1",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
