@@ -38,7 +38,7 @@ func (s sqljob) Get(name string) (sqljoblist []model.SqlJob, err error) {
 }
 
 // 分页查询全部
-func (s sqljob) GetAll(pagenum, pagesize string) (sqljoblist []model.SqlJob, err error) {
+func (s sqljob) GetByPage(pagenum, pagesize string) (sqljoblist []model.SqlJob, err error) {
 	pageSize, offsetVal := PageComput(pagenum, pagesize)
 	rec := DB.Limit(pageSize).Offset(offsetVal).Find(&sqljoblist)
 	return sqljoblist, rec.Error
@@ -63,3 +63,10 @@ func PageComput(pagenum, pagesize string) (pageSize, offsetVal int) {
 	}
 	return
 }
+
+// 全量查询
+func (s sqljob) GetAll() (sqljoblist []model.SqlJob, err error) {
+	rec := DB.Find(&sqljoblist)
+	return sqljoblist, rec.Error
+}
+

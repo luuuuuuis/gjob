@@ -9,5 +9,6 @@ func Router(r *gin.Engine) {
 	r.GET("/hello", hello)
 	r.POST("/job/sql/create", Sqljob.create)
 	r.GET("/job/sql/get", Sqljob.query)
+	r.GET("/job/sql/getall", Sqljob.queryAll)
 	r.GET("/job/sql/getbypage", Sqljob.queryByPage)
 }

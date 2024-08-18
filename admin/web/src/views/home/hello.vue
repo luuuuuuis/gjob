@@ -13,22 +13,22 @@
 import url from "../common/url";
 import httpClient from '../../utils/request';
 
-    export default{
-        data(){
-            return{
-                datas: [],
-                helloUrl: url.helloUrl
-            }
-        },
-        methods:{
-            getData(){
-                httpClient.get(this.helloUrl)
-                .then(reponse => {
-                    console.log(reponse)
-                    this.datas = reponse
-                })
-                .catch()
-            }
+export default{
+    data(){
+        return{
+            datas: [],
+            helloUrl: url.helloUrl
+        }
+    },
+    methods:{
+        getData(){
+            httpClient.get(this.helloUrl)
+            .then(reponse => {
+                console.log(reponse)
+                this.datas = reponse
+            })
+            .catch()
         }
     }
+}
 </script>

@@ -119,3 +119,26 @@ func (s *sqljob) queryByPage(ctx *gin.Context) {
 		},
 	)
 }
+
+// 查询全量
+func (s *sqljob) queryAll(ctx *gin.Context) {
+	sqljoblist, err := service.SqljobService.GetAll()
+	if err != nil {
+		utils.Logger.Error().
+			Err(err).
+			Stack().
+			Int("status", 500).
+			Str("method", ctx.Request.Method).
+			Str("path", ctx.Request.URL.Path).
+			Str("query", ctx.Request.URL.RawQuery).
+			Msg("查询全量sqljob失败")
+	}
+
+	ctx.JSON(
+		http.StatusOK,
+		gin.H{
+			"msg":  "查询全量sqljob成功",
+			"data": sqljoblist,
+		},
+	)
+}
