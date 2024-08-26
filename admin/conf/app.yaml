@@ -7,7 +7,7 @@ server:
 
 mysql:
   base:
-    dsn: "luis:qwe123@tcp(127.0.0.1:3306)/gjob?charset=utf8mb4&parseTime=True&loc=Local"
+    dsn: "luis:qwe123@tcp(101.35.245.168:13306)/gjob?charset=utf8mb4&parseTime=True&loc=Local"
   config:
     maxIdleConns: 10
     maxOpenConns: 100
@@ -30,4 +30,7 @@ Log:
   maxsize: 1
   maxbackups: 3
   maxage: 7
-  
+
+User:
+  adminuser: "admin"
+  adminpwd: "123456"

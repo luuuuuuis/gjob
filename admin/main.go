@@ -2,7 +2,6 @@ package main
 
 import (
 	"gjob-admin/api"
-	"gjob-admin/pkg/dao"
 	"gjob-admin/pkg/middleware"
 	"gjob-admin/pkg/utils"
 
@@ -15,7 +14,7 @@ func main() {
 	// 初始化日志
 	utils.LogInit()
 	// 初始化数据库
-	dao.InitDB()
+	// dao.InitDB()
 	// 初始化实例
 	r := gin.Default()
 	// 使用中间件

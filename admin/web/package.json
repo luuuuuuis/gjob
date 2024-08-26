@@ -12,6 +12,10 @@
     "@layui/layui-vue": "^2.18.1",
     "axios": "^1.7.2",
     "echarts": "^5.5.1",
+    "element-plus": "^2.8.1",
+    "md5": "^2.3.0",
+    "moment": "^2.30.1",
+    "nprogress": "^0.2.0",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },

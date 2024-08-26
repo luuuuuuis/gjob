@@ -10,7 +10,7 @@
 
 
 <script>
-import url from "../common/url";
+import url from "../common/Config";
 import httpClient from '../../utils/request';
 
 export default{
