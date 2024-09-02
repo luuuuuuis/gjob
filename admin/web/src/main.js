@@ -2,7 +2,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import Layui from '@layui/layui-vue'
 import '@layui/layui-vue/lib/index.css'
 // 导入element plus
 import ElementPlus from 'element-plus'
@@ -20,7 +19,5 @@ for (let iconName in ELIcons) {
 app.use(ElementPlus)
 
 app.use(router)
-app.use(Layui)
-
 
 app.mount('#app')

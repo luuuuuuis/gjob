@@ -2,50 +2,97 @@ import { createRouter, createWebHistory } from 'vue-router'
 //导入进度条组件
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+//导入整体布局Layout
+import Layout from "@/layout/Layout.vue"
+const routes = [
+  {
+    path: '/login',  //url路径
+    component: () => import('@/views/login/Login.vue'),  //视图组件
+    icon: "odometer",  //图标
+    meta: {title: "登录", requireAuth: false},  //meta元信息
+  },
+  {
+    path: '/hello',
+    name: 'hello',
+    component: () => import('@/views/home/hello.vue')
+  },
+  {
+    path: '/',
+    redirect: '/home' //重定向
+  },
+  {
+    path: '/home',
+    component: Layout,
+    icon: "odometer",
+    children: [
+      {
+        path: "/home",
+        name: '概要',
+        icon: "odometer",
+        component: () => import('@/views/home/dashboard.vue')
+      }
+      
+    ],
+  },
+  {
+    path: "/grouplist",
+    component: Layout,
+    icon: "odometer",
+    children: [
+      {
+        path: "/grouplist",
+        name: "通知群组",
+        icon: "odometer",
+        component: () => import('@/views/home/grouplist.vue')
+      }
+    ]    
+  },
+  {
+    path: "/job",
+    name: "调度任务",
+    component: Layout,
+    icon: "home-filled",
+    meta: {title: "调度任务", requireAuth: true},
+    children: [
+      {
+        path: "/job/sql",
+        name: "SQL任务",
+        icon: "el-icon-s-data",
+        meta: {title: "SQL任务",requireAuth: true},
+        component: () => import('@/views/home/sqllist.vue')
+      },
+      {
+        path: "/job/script",
+        name: "脚本任务",
+        icon: "el-icon-s-data",
+        meta: {title: "S脚本任务",requireAuth: true},
+        component: () => import('@/views/home/scriptlist.vue')
+      },
+    ]
+  },
+  {
+    path: "/nodelist",
+    component: Layout,
+    icon: "odometer",
+    children: [
+      {
+        path: "/nodelist",
+        name: "工作节点",
+        icon: "odometer",
+        component: () => import('@/views/home/nodelist.vue')
+      }
+    ]    
+  }
+]
+
+// createRouter 创建路由实例
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/login',  //url路径
-      component: () => import('@/views/login/Login.vue'),  //视图组件
-      icon: "odometer",  //图标
-      meta: {title: "登录", requireAuth: false},  //meta元信息
-    },
-    {
-      path: '/',
-      redirect: '/home' //重定向
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import('@/views/home/dashboard.vue')
-    },
-    {
-      path: '/hello',
-      name: 'hello',
-      component: () => import('@/views/home/hello.vue')
-    },
-    {
-      path: '/grouplist',
-      name: 'grouplist',
-      component: () => import('@/views/home/grouplist.vue')
-    },
-    {
-      path: '/sqllist',
-      name:'sqllist',
-      component: () => import('@/views/home/sqllist.vue')
-    },
-    {
-      path: '/scriptlist',
-      name:'scriptlist',
-      component: () => import('@/views/home/scriptlist.vue')
-    },
-    {
-      path: '/nodelist',
-      name:'nodelist',
-      component: () => import('@/views/home/nodelist.vue')
-    }
-  ]
+  /**
+   * hash模式：createWebHashHistory，
+   * history模式：createWebHistory
+   */
+  history: createWebHistory(),
+  routes
 })
 
 //递增进度条，这将获取当前状态值并添加0.2直到状态为0.994

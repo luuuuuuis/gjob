@@ -21,8 +21,6 @@ func main() {
 	r.Use(middleware.GinLogger, middleware.Cors())
 	// 注册user模块路由
 	api.Router(r)
-	// project.Router(r)
-	// api.Router(r)
 	r.Run(utils.Config.GetString("server.base.listen_addr"))
 
 }

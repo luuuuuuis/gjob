@@ -4,10 +4,6 @@
   <RouterView></RouterView>
 </template>
 
-<!-- 交互 -->
-<script>
-
-</script>
 
 <!-- 样式 -->
 <style>
