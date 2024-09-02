@@ -8,7 +8,6 @@ const routes = [
   {
     path: '/login',  //url路径
     component: () => import('@/views/login/Login.vue'),  //视图组件
-    icon: "odometer",  //图标
     meta: {title: "登录", requireAuth: false},  //meta元信息
   },
   {
@@ -23,12 +22,11 @@ const routes = [
   {
     path: '/home',
     component: Layout,
-    icon: "odometer",
     children: [
       {
         path: "/home",
         name: '概要',
-        icon: "odometer",
+        icon: "HomeFilled",
         component: () => import('@/views/home/dashboard.vue')
       }
       
@@ -37,12 +35,11 @@ const routes = [
   {
     path: "/grouplist",
     component: Layout,
-    icon: "odometer",
     children: [
       {
         path: "/grouplist",
         name: "通知群组",
-        icon: "odometer",
+        icon: "UserFilled",
         component: () => import('@/views/home/grouplist.vue')
       }
     ]    
@@ -51,21 +48,19 @@ const routes = [
     path: "/job",
     name: "调度任务",
     component: Layout,
-    icon: "home-filled",
+    icon: "Calendar",
     meta: {title: "调度任务", requireAuth: true},
     children: [
       {
         path: "/job/sql",
         name: "SQL任务",
-        icon: "el-icon-s-data",
         meta: {title: "SQL任务",requireAuth: true},
         component: () => import('@/views/home/sqllist.vue')
       },
       {
         path: "/job/script",
         name: "脚本任务",
-        icon: "el-icon-s-data",
-        meta: {title: "S脚本任务",requireAuth: true},
+        meta: {title: "脚本任务",requireAuth: true},
         component: () => import('@/views/home/scriptlist.vue')
       },
     ]
@@ -73,12 +68,11 @@ const routes = [
   {
     path: "/nodelist",
     component: Layout,
-    icon: "odometer",
     children: [
       {
         path: "/nodelist",
         name: "工作节点",
-        icon: "odometer",
+        icon: "Platform",
         component: () => import('@/views/home/nodelist.vue')
       }
     ]    

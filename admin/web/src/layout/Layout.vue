@@ -187,15 +187,15 @@ export default {
         color: white;
     }
     .logo-image {
-        width: 40px;
+        width: 53px;
         height: 40px;
         top: 12px;
-        padding-left: 12px;
+        padding-left: 14px;
     }
     .logo-name{
         font-size: 20px;
         font-weight: bold;
-        padding: 10px;
+        padding: 30px;
     }
     /* 滚动条不展示 */
     .aside::-webkit-scrollbar {
